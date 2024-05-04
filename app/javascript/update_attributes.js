@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const error = errorText.value;
     const seed = seedInput.value;
   
-    const response = await fetch(`/update_data?region=${region}&error=${error}&seed=${seed}`);
+    const response = await fetch(`/update_data?region=${region}&error=${error}&seed=${seed}&page=${currentPage}`);
     const data = await response.json();
 
     const tableBody = document.getElementById('user-table-body');
-    
+
     while (tableBody.firstChild) {
       tableBody.removeChild(tableBody.firstChild);
     }
@@ -60,5 +60,47 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update paragraph text
     updateText()
   });
-  
+
+  let currentPage = 1;
+  let isLoading = false;
+
+  async function loadMoreData() {
+    if (isLoading) {
+      return;
+    }
+    currentPage++;
+    
+    isLoading = true;
+
+    const region = regionInput.value;
+    const error = errorText.value;
+    const seed = seedInput.value;
+    
+    const response = await fetch(`/update_data?region=${region}&error=${error}&seed=${seed}&page=${currentPage}`);
+    const data = await response.json();  
+
+    const tableBody = document.getElementById('user-table-body');    
+
+    data.forEach(({ id, identifier, name, address, phone_number }) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${id}</td>
+        <td>${identifier}</td>
+        <td>${name}</td>
+        <td>${address}</td>
+        <td>${phone_number}</td>
+      `;
+      tableBody.appendChild(row);
+    });
+
+    
+    isLoading = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50 && !isLoading) {
+      console.log('Found the tapestry');
+      loadMoreData();
+    }
+  });
 });

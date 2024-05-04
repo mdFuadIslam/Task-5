@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :home, only: [:region, :error,:seed]
+  resources :home, only: [:region, :error, :seed, :page]
   # Define routes here
   root to: 'home#index'
 
