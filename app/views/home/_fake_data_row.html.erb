@@ -1,0 +1,9 @@
+<% @output.each do |fake_data| %>
+<tr>
+  <th><%= fake_data[:id]%></th>
+  <th><%= fake_data[:identifier]%></th>
+  <th><%= fake_data[:name]%></th>
+  <th><%= fake_data[:address]%></th>
+  <th><%= fake_data[:phone_number]%></th>
+</tr>
+<% end%>

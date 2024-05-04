@@ -5,19 +5,35 @@ document.addEventListener('DOMContentLoaded', function() {
   const seedInput = document.getElementById('seed');
   const randomButton = document.getElementById('randomButton');
 
-  
-  function updateText() {
+  regionInput.value = '<%= cookies[:region] %>';
+  errorText.value = '<%= cookies[:error] %>';
+  seedInput.value = '<%= cookies[:seed] %>';
+
+  async function updateText() {
     const region = regionInput.value;
     const error = errorText.value;
     const seed = seedInput.value;
+  
+    const response = await fetch(`/update_data?region=${region}&error=${error}&seed=${seed}`);
+    const data = await response.json();
 
-    $.post('/update_data', { region: region, error: error, seed: seed })
-  .done(function(response) {
-    console.log('Data updated:', response);
-  })
-  .fail(function(jqXHR, textStatus, errorThrown) {
-    console.error('Error updating data:', errorThrown);
-  });
+    const tableBody = document.getElementById('user-table-body');
+    
+    while (tableBody.firstChild) {
+      tableBody.removeChild(tableBody.firstChild);
+    }
+
+    data.forEach(({ id, identifier, name, address, phone_number }) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${id}</td>
+        <td>${identifier}</td>
+        <td>${name}</td>
+        <td>${address}</td>
+        <td>${phone_number}</td>
+      `;
+      tableBody.appendChild(row);
+    });
   }
   function errorSliderChange(){
     errorText.value = errorSlider.value * 100;
