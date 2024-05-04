@@ -10,3 +10,7 @@ import 'channels';
 import 'bootstrap';
 
 Rails.start();
+
+//= require jquery3
+//= require popper
+//= require bootstrap

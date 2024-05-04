@@ -1,36 +1,43 @@
 <form id="data-form" action="/update_data" method="post" remote="true">
-  <select id="region" name="region">
-    <option value="en-US">USA</option>
-    <option value="de">Germany</option>
-    <option value="fe">France</option>
-  </select>
+  <div class="form-group">
+    <label>Select Region:</label>
+    <select id="region" name="region" aria-label="Select Region">
+      <option value="" disabled>Choose a region</option>
+      <option value="ru">Russia</option>
+      <option value="de">Germany</option>
+      <option value="en-US">United States</option>
+    </select>
+  </div>
 
-  <br>
+  <div class="form-group">
+    <label>Select Error:</label>
+    <input type="range" id="errorSlider" name="errorSlider" min="0" max="10">
+    <input type="number" id="errorText" name="errorText" min="0" max="1000">
+  </div>
 
-  <input type="range" id="errorSlider" name="errorSlider" min="0" max="10">
-  <input type="number" id="errorText" name="errorText" min="0" max="1000">
-
-  <br>
-
-  <input type="number" id="seed" name="seed">
-  <br>
-  <input type="button" value="Click me" id="randomButton">
+  <div class="form-group">
+    <label>Select Seed:</label>
+    <input type="number" id="seed" name="seed">
+    <input type="button" value="Random" id="randomButton">
+  </div>
 </form>
 
-<table id="user-table">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Random Identifier</th>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Phone Number</th>
-    </tr>
-  </thead>
-  <tbody id="user-table-body">
-    <!-- The table rows will be inserted here -->
-  </tbody>
-</table>
+<div class="table-container">
+  <table id="user-table" class="table-users">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Random Identifier</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone Number</th>
+      </tr>
+    </thead>
+    <tbody id="user-table-body">
+      <!-- The table rows will be inserted here -->
+    </tbody>
+  </table>
+</div>
 
 <script>
   updateText();

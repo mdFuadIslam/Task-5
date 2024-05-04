@@ -28,7 +28,7 @@ class HomeController < ApplicationController
     output = []
     if @page == '1'
       start_at = 1
-      end_at = 40
+      end_at = 20
     else
       start_at = @page.to_i * 10 + 1
       end_at = start_at + 9
@@ -38,7 +38,6 @@ class HomeController < ApplicationController
       fake_data[:id] = i
       output << fake_data
     end
-    puts output
     output
   end
 end
