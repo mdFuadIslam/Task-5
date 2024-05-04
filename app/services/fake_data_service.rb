@@ -47,7 +47,7 @@ class FakeDataService
   COUNTRY_CODES = {
     'en-US' => '+1',
     'de' => '+49',
-    'fe' => '+33'
+    'en-GB' => '+44'
   }
   def self.generate_data(seed, locale = 'en-US', error)
     Faker::Config.random = Random.new(seed)
