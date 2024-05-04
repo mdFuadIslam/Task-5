@@ -1,0 +1,39 @@
+
+<form id="data-form" action="/update_data" method="post">
+  <select id="region" name="region">
+    <option value="en-US">USA</option>
+    <option value="de">Germany</option>
+    <option value="fe">France</option>
+  </select>
+
+  <br>
+  
+  <input type="range" id="errorSlider" name="errorSlider" min="0" max="10"  >
+  <input type="number" id="errorText" name="errorText" min="0" max="1000" >
+
+  <br>
+  
+  <input type="number" id="seed" name="seed" >
+  <br>
+  <input type="button" value="Click me" id="randomButton">
+
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th><th>Random Identifier</th><th>Name</th><th>Addres</th><th>Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @list.each do |fake_data| %>
+    <tr>
+      <th><%= fake_data[:id]%>
+      </th><th><%= fake_data[:identifier]%></th>
+      <th><%= fake_data[:name]%></th>
+      <th><%= fake_data[:address]%></th>
+      <th><%= fake_data[:phone_number]%></th>
+    </tr>
+    <% end%>
+  </tbody>
+</table>
