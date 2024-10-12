@@ -1,24 +1,25 @@
-# README
+# Random Data Generator (Task-5)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to Task-5, a random database generator.
 
-Things you may want to cover:
+## Demonstration
 
-* Ruby version
+[https://youtu.be/Raw6ELeiz_w]
 
-* System dependencies
+## Live Deployment
 
-* Configuration
+The project is deployed on Render. You can access the live site at:
 
-* Database creation
+[https://task-5-tp0e.onrender.com]
 
-* Database initialization
+## Key Features
+- **Real-Time Dynamic Data Generation and Updates:** Dynamically updates generated information on the page in real-time, responding to input value changes.
+- **Infinite Pagination Capability:** Automatically generates new data when the user reaches the bottom of the page.
+- **Region-Based and Seed-Driven User Data Generation:** Generates user data based on specific regions and seed values.
+- **Error Injection:** Allows users to set an error rate, which is proportionally applied to the generated data, affecting name and address fields.
 
-* How to run the test suite
+## Project Highlights
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- **Backend:** Rails framework
+- **Frontend:** Simple CSS.
+- **Deployment:** Deployed on Render.
