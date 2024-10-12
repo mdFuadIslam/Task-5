@@ -6,13 +6,13 @@ Welcome to Task-5, a random database generator.
 
 [https://youtu.be/Raw6ELeiz_w]
 
-Wait 5 minutes after clicking the link.
-
 ## Live Deployment
 
 The project is deployed on Render. You can access the live site at:
 
 [https://task-5-tp0e.onrender.com]
+
+Wait 5 minutes after clicking the link.
 
 ## Key Features
 - **Real-Time Dynamic Data Generation and Updates:** Dynamically updates generated information on the page in real-time, responding to input value changes.
